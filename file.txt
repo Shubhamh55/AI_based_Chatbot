@@ -1,0 +1,134 @@
+What is Aaple Sarkar DBT
+##Aaple Sarkar DBT (Direct Benefit Transfer) is a portal launched by Government 
+of Maharashtra to transfer the benefits and subsidies of various social welfare schemes 
+like E Scholarships, Pension, Disaster, etc., directly into the bank account of the 
+beneficiary.
+##Who can apply into the Aaple Sarkar DBT Portal
+##Any Citizen of India can register on the portal. Eligibility and disbursement will 
+be according to the schemes as displayed.
+##How long is the OTP valid?
+##OTP is valid for 30 mins
+##How does Aadhaar based DBT help me as a beneficiary?
+##Aadhaar seeding your scheme ensures that nobody else can claim your share of the 
+benefits by impersonating you as a person. Also, in case of cash transfers, 
+the money reaches directly to you Aadhaar linked bank account. You do not have to 
+pursue different people to get the funds, besides you can decide which bank account 
+you want to take money in. But all benefits go to your latest Aadhaar linked bank 
+account. You cannot decide that one will go to one bank account and another one to the 
+other bank account.
+##What if a Resident gets rejected by the UIDAI and is not issued Aadhaar?
+##The reason for rejection along with steps to be taken post rejection will be
+communicated to the resident and the Registrar.
+a) Resident can find his Aadhaar number by using Aadhaar Service Retrieve Lost UID/EID.
+b) Resident can call 1947 where our Contact Centre Agent will help the User in getting 
+EID number. The resident can further use this EID to download eAadhaar from Resident 
+Portal eAadhaar.
+c) Resident can get Aadhaar number on registered mobile from Resident Portal  
+	Get Aadhaar Number on Mobile
+##After I get enrolled, how long will it take to get my Aadhaar letter? And how do I get my
+Aadhaar letter?
+##Aadhaar generation may take up to 90 days. Aadhaar letter is delivered by post.
+ Once Aadhaar is generated, you also get a SMS on registered mobile 
+(if mobile number provided during enrolment).
+##Can we register/ change mobile number online?
+##For any online update request, including updation of mobile number, resident should 
+already have an active number registered with UIDAI where person can receive OTP SMS 
+and authenticate himself/herself. Otherwise you would need to visit nearest UIDAI 
+permanent enrollment center.
+##Do I need Aadhaar to get my DBT?
+##Government Of Maharashtra encourages all citizens of Maharashtra to have Aadhaar number 
+so as benefits can be directly transferred to Aadhaar seeded Bank account. DBT portal 
+navigates citizens to visit nearest PEC center to enroll themselves for Aadhaar.
+
+##Have multiple accounts, where will I receive the money?
+##Please give your copy of Aadhaar letter with your bank account number written on it or 
+copy of your bank passbook to the bank where you want to receive the funds. 
+The bank may require you to fill a form as well. Updating your mobile number in bank is also advisable. 
+This will send out SMS alerts when you get DBT in account or you transact on your account.
+Please note that the bank account which has been seeded last with the Aadhaar number will be the one
+to receive money through DBT.
+##What is the process of Offshore Banking (Banking Correspondent), my village?
+##Banking Correspondent carry a hand hold device, which can allow you multiple type
+ of banking transactions on your Aadhaar linked Bank account. Transactions possible 
+are Balance, Enquiry, Cash Deposit, Cash Withdrawal, Paying Bills, Remitting funds to
+ other Aadhaar holder. Banking Correspondent also helps in opening of Aadhaar linked 
+bank account.
+##Why are Government schemes asking for Aadhaar?
+##It helps schemes to clean out duplicates and fakes, to provide accurate data and enable 
+implementation of direct benefit programmes. Use of Aadhaar reduces the costs of 
+identifying persons and provides Increased transparency to the government in 
+implementation of its schemes.
+##Changed to what is the procedure to make corrections in Aadhaar details?
+##Based on which document needs name correction, such document should be corrected. 
+In case the name correction is to be done in Aadhaar, then you can visit the nearest 
+permanent enrolment center to update your name, age, address, mobile number and other 
+demographic details (list available at www.uidai.gov.in) or you can also update the 
+details online by using SSUP portal or by sending the updation/correction form by Post
+ on Address available on website along with supporting documents. Based on the type of 
+update relevant documentary proof will required to be furnished.
+##Will an AADHAAR enabled bank account be opened with every issue of an AADHAAR
+number?
+##AADHAAR enabled bank accounts will be opened for every resident, if he or she 
+chooses to consent to the same. This consent will be requested from the resident 
+at the time of enrolment itself. The accounts would be opened for everyone including 
+children.
+
+##What is the difference between Aadhaar linked bank account and normal bank
+account?
+##It is envisaged that disbursement of social security benefits like pensions, 
+scholarships, MGNREGS wages etc. would be through Aadhaar enabled bank account. 
+UIDAI is actively working with states/central ministries to designate Aadhaar enabled 
+accounts for disbursal of all social security benefits. The individual would be able to 
+access his/her AADHAAR enabled bank account through a low cost interoperable micro ATM 
+network which will have large geographical reach. Instant payments through biometric 
+authentication and mobile payments will also be enabled in the future for such accounts.
+##I have accounts with more than 1 bank and I have linked all accounts to Aadhaar. Which
+account can I use for making digital payments using Aadhaar Number?
+##You can use all accounts. While making Aadhaar Based payment, you will be given an 
+option to choose the bank name from which you want to pay. Thus you have the choice 
+of deciding bank, each time you make a payment.
+##How is Aadhaar different from any other identity issued by the government?
+##Aadhaar is a lifelong unique 12 digit random number assigned to a resident which is
+verifiable online anywhere anytime using the Aadhaar authentication platform.
+Aadhaar authentication responds only with yes/no answer.
+The Aadhaar Scheme is primarily aimed at improving the delivery of social security
+benefits and subsidies, plugging leakages and wastes, eliminating fakes and duplicates
+and enhancing transparency and accountability.
+##How to check the eligibility for the scheme?
+##The basic objective of the Check eligibility is to fetch relevant schemes that are
+applicable to the Applicant on the basis of the input provided by the applicant for
+eligibility Check.
+##What are the different file formats which can be accepted?
+##JPG and PNG Format.
+##What is the Max File Size for uploading document?
+##The maximum file size a user can upload is 250 KB.
+##What is GRN No. in application form?
+##GRN is the General Registration Number. Applicant to contact School to get their GRN
+details. Combination of GRN and UIDSE will Fetch the details of Applicant Name, DOB,
+Gender, School Name from Saral.
+##Overview Of Merit Scholarships for Economically Backward Class Students
+##This Scholarship is being awarded to enable economically backward class students to
+continue their further education. (Boys student from Class XI and XII th only)
+##How to check the status of the application after submission?
+##Login to the MahaDBT Portal, under the Application Tracking menu, the applicant can see 
+the status of their application by entering the valid Application ID.
+##Can the application form be edited after submission?
+##Yes, If the Institute sends back the application to student for modification in that case 
+applicant can modify some specific fields.
+##Can the application form be stored in draft mode?
+##Yes, the Applicant can able to store the application form in draft mode.
+##How would I know that DBT funds have come to my account?
+##We recommend that you update your mobile number in bank. The Bank will send out SMS 
+alerts when you get DBT in account or you transact on your account. Alternatively, you 
+can also check your account balance using ATM, microATM/ Banking Correspondent, internet 
+banking or calling the bank for details of your transactions.
+##If your SSC & HSC board not shown in SSC & HSC Details Dropdown list?
+##1. Select the Other board from the SSC/HSC details section. 
+2. Fill all mandatory fields in SSC/HSC details section manually.
+(i.e. Board Name, Seat No., Name on SSC Certificate, the Total Marks, Marks Obtained).
+##If Your College Name/Course Name Missing from College Name & Course Name field
+Dropdown?
+##Select the check box which is displayed at the bottom and add College Name & 
+Course Name, University Name manually.
+##For Aadhaar Bank linking status?
+##Dial *99*99# to know the Aadhaar Bank linking status.

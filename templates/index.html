@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<head>
+    <title>Goverment Scolarship Portal</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<style>
+    .navbar-brand{
+        margin-left: 10px;
+    }
+    .collapse navbar-collapse{
+        margin-left: 50px;    
+    }
+    .row{
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#sendmsg").click(function (e) {
+            var text = $('textarea').val();
+            $('textarea').val('');
+            $("div.msgbox").append('<div class="userside">'+text+'</div>');
+            $.ajax({
+              url:'/',
+              type:'POST',
+              data:text,
+            })
+            .done(function(data){
+              console.log(data["Message"]);
+              $("div.msgbox").append('<div class="serverside">'+data["Message"]+'</div>');
+              $("div.msgbox").scrollTop($("div.msgbox")[0].scrollHeight);
+            });
+            // sucess: function (response){
+            //     console.log(response);
+            //     // $("div.msgbox").append('<div class="userside">'+response+'</div>');
+            //   } 
+            $("div.msgbox").scrollTop($("div.msgbox")[0].scrollHeight);
+            e.preventDefault();
+            })
+});
+</script>
+<script>
+  function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+</script>
+<body> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+        <img src="{{ url_for('static', filename='src/logo.png') }}" alt="Logo" width="50" height="50">
+          <a class="navbar-brand" href="#"><b>Goverment</b> Scolarship Portal</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Scolarships
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Post Matric Scolarships</a></li>
+                  <li><a class="dropdown-item" href="#">Pre Matric Scolarships</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Other Scolarships</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" id="btn-search" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>    
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='src/1.png') }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Post Matric Scolarships</h5>
+              <p>Scolarships for education after matric.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='src/2.png') }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Pre Matric Scolarships</h5>
+              <p>Scolarships for education before matric.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='src/3.png') }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Other Scolarships</h5>
+              <p>Scolarships for other studies.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div><br>
+      <h2>General FAQs</h2>
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+              <b>What is Aaple Sarkar DBT</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body">
+              Aaple Sarkar DBT (Direct Benefit Transfer) is a portal launched by Government of Maharashtra to transfer the benefits and subsidies of various social welfare schemes like E Scholarships, Pension, Disaster, etc., directly into the bank account of the beneficiary.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+              <b>Who can apply into the Aaple Sarkar DBT Portal</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+            <div class="accordion-body">
+              Any Citizen of India can register on the portal. Eligibility and disbursement will be according to the schemes as displayed.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+              <b>How long is the OTP valid?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+            <div class="accordion-body">
+              OTP is valid for 30 mins
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+              <b>How does Aadhaar based DBT help me as a beneficiary?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+            <div class="accordion-body">
+              Aadhaar seeding your scheme ensures that nobody else can claim your share of the benefits by impersonating you as a person. Also, in case of cash transfers, the money reaches directly to you Aadhaar linked bank account. You do not have to pursue different people to get the funds, besides you can decide which bank account you want to take money in. But all benefits go to your latest Aadhaar linked bank account. You cannot decide that one will go to one bank account and another one to the other bank account.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+              <b>What if a Resident gets rejected by the UIDAI and is not issued Aadhaar?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+            <div class="accordion-body">
+              The reason for rejection along with steps to be taken post rejection will becommunicated to the resident and the Registrar.a) Resident can find his Aadhaar number by using Aadhaar Service Retrieve Lost UID/EID.b) Resident can call 1947 where our Contact Centre Agent will help the User in getting EID number. The resident can further use this EID to download eAadhaar from Resident Portal eAadhaar.c) Resident can get Aadhaar number on registered mobile from Resident Portal  	Get Aadhaar Number on Mobile
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+              <b>After I get enrolled, how long will it take to get my Aadhaar letter? And how do I get myAadhaar letter?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
+            <div class="accordion-body">
+              Aadhaar generation may take up to 90 days. Aadhaar letter is delivered by post. Once Aadhaar is generated, you also get a SMS on registered mobile (if mobile number provided during enrolment).
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeven">
+              <b>Can we register/ change mobile number online?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSeven">
+            <div class="accordion-body">
+              For any online update request, including updation of mobile number, resident should already have an active number registered with UIDAI where person can receive OTP SMS and authenticate himself/herself. Otherwise you would need to visit nearest UIDAI permanent enrollment center.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingEight">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false" aria-controls="panelsStayOpen-collapseEight">
+              <b>Do I need Aadhaar to get my DBT?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEight">
+            <div class="accordion-body">
+              Government Of Maharashtra encourages all citizens of Maharashtra to have Aadhaar number so as benefits can be directly transferred to Aadhaar seeded Bank account. DBT portal navigates citizens to visit nearest PEC center to enroll themselves for Aadhaar.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingNine">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false" aria-controls="panelsStayOpen-collapseNine">
+              <b>Have multiple accounts, where will I receive the money?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingNine">
+            <div class="accordion-body">
+              Please give your copy of Aadhaar letter with your bank account number written on it or copy of your bank passbook to the bank where you want to receive the funds. The bank may require you to fill a form as well. Updating your mobile number in bank is also advisable. This will send out SMS alerts when you get DBT in account or you transact on your account.Please note that the bank account which has been seeded last with the Aadhaar number will be the oneto receive money through DBT.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTen">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false" aria-controls="panelsStayOpen-collapseTen">
+              <b>What is the process of Offshore Banking (Banking Correspondent), my village?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTen">
+            <div class="accordion-body">
+              Banking Correspondent carry a hand hold device, which can allow you multiple type of banking transactions on your Aadhaar linked Bank account. Transactions possible are Balance, Enquiry, Cash Deposit, Cash Withdrawal, Paying Bills, Remitting funds to other Aadhaar holder. Banking Correspondent also helps in opening of Aadhaar linked bank account.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingEleven">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false" aria-controls="panelsStayOpen-collapseEleven">
+              <b>Why are Government schemes asking for Aadhaar?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseEleven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEleven">
+            <div class="accordion-body">
+              It helps schemes to clean out duplicates and fakes, to provide accurate data and enable implementation of direct benefit programmes. Use of Aadhaar reduces the costs of identifying persons and provides Increased transparency to the government in implementation of its schemes.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwelve">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwelve" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwelve">
+              <b>Changed to what is the procedure to make corrections in Aadhaar details?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwelve">
+            <div class="accordion-body">
+              Based on which document needs name correction, such document should be corrected. In case the name correction is to be done in Aadhaar, then you can visit the nearest permanent enrolment center to update your name, age, address, mobile number and other demographic details (list available at www.uidai.gov.in) or you can also update the details online by using SSUP portal or by sending the updation/correction form by Post on Address available on website along with supporting documents. Based on the type of update relevant documentary proof will required to be furnished.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingThirteen">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThirteen" aria-expanded="false" aria-controls="panelsStayOpen-collapseThirteen">
+              <b>Will an AADHAAR enabled bank account be opened with every issue of an AADHAARnumber?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseThirteen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThirteen">
+            <div class="accordion-body">
+              AADHAAR enabled bank accounts will be opened for every resident, if he or she chooses to consent to the same. This consent will be requested from the resident at the time of enrolment itself. The accounts would be opened for everyone including children.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingFourteen">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFourteen" aria-expanded="false" aria-controls="panelsStayOpen-collapseFourteen">
+              <b>What is the difference between Aadhaar linked bank account and normal bankaccount?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseFourteen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFourteen">
+            <div class="accordion-body">
+              It is envisaged that disbursement of social security benefits like pensions, scholarships, MGNREGS wages etc. would be through Aadhaar enabled bank account. UIDAI is actively working with states/central ministries to designate Aadhaar enabled accounts for disbursal of all social security benefits. The individual would be able to access his/her AADHAAR enabled bank account through a low cost interoperable micro ATM network which will have large geographical reach. Instant payments through biometric authentication and mobile payments will also be enabled in the future for such accounts.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingFifteen">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFifteen" aria-expanded="false" aria-controls="panelsStayOpen-collapseFifteen">
+              <b>I have accounts with more than 1 bank and I have linked all accounts to Aadhaar. Which account can I use for making digital payments using Aadhaar Number?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseFifteen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFifteen">
+            <div class="accordion-body">
+              You can use all accounts. While making Aadhaar Based payment, you will be given an option to choose the bank name from which you want to pay. Thus you have the choice of deciding bank, each time you make a payment.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingSixteen">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSixteen" aria-expanded="false" aria-controls="panelsStayOpen-collapseSixteen">
+              <b>How is Aadhaar different from any other identity issued by the government?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseSixteen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSixteen">
+            <div class="accordion-body">
+              Aadhaar is a lifelong unique 12 digit random number assigned to a resident which isverifiable online anywhere anytime using the Aadhaar authentication platform.Aadhaar authentication responds only with yes/no answer.The Aadhaar Scheme is primarily aimed at improving the delivery of social securitybenefits and subsidies, plugging leakages and wastes, eliminating fakes and duplicatesand enhancing transparency and accountability.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingSeventeen">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeventeen" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeventeen">
+              <b>How to check the eligibility for the scheme?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseSeventeen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSeventeen">
+            <div class="accordion-body">
+              The basic objective of the Check eligibility is to fetch relevant schemes that areapplicable to the Applicant on the basis of the input provided by the applicant foreligibility Check.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingEighteen">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEighteen" aria-expanded="false" aria-controls="panelsStayOpen-collapseEighteen">
+              <b>What are the different file formats which can be accepted?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseEighteen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEighteen">
+            <div class="accordion-body">
+              JPG and PNG Format.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingNineteen">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNineteen" aria-expanded="false" aria-controls="panelsStayOpen-collapseNineteen">
+              <b>What is the Max File Size for uploading document?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseNineteen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingNineteen">
+            <div class="accordion-body">
+              The maximum file size a user can upload is 250 KB.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwenty">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwenty" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwenty">
+              <b>What is GRN No. in application form?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwenty" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwenty">
+            <div class="accordion-body">
+              GRN is the General Registration Number. Applicant to contact School to get their GRNdetails. Combination of GRN and UIDSE will Fetch the details of Applicant Name, DOB,Gender, School Name from Saral.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwenty-One">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwenty-One" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwenty-One">
+              <b>Overview Of Merit Scholarships for Economically Backward Class Students</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwenty-One" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwenty-One">
+            <div class="accordion-body">
+              This Scholarship is being awarded to enable economically backward class students tocontinue their further education. (Boys student from Class XI and XII th only)
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwenty-two">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwenty-two" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwenty-two">
+              <b>How to check the status of the application after submission?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwenty-two" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwenty-two">
+            <div class="accordion-body">
+              Login to the MahaDBT Portal, under the Application Tracking menu, the applicant can see the status of their application by entering the valid Application ID.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwenty-three">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwenty-three" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwenty-three">
+              <b>Can the application form be edited after submission?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwenty-three" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwenty-three">
+            <div class="accordion-body">
+              Yes, If the Institute sends back the application to student for modification in that case applicant can modify some specific fields.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwenty-four">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwenty-four" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwenty-four">
+              <b>Can the application form be stored in draft mode?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwenty-four" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwenty-four">
+            <div class="accordion-body">
+              Yes, the Applicant can able to store the application form in draft mode.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwenty-five">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwenty-five" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwenty-five">
+              <b>How would I know that DBT funds have come to my account?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwenty-five" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwenty-five">
+            <div class="accordion-body">
+              We recommend that you update your mobile number in bank. The Bank will send out SMS alerts when you get DBT in account or you transact on your account. Alternatively, you can also check your account balance using ATM, microATM/ Banking Correspondent, internet banking or calling the bank for details of your transactions.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwenty-six">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwenty-six" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwenty-six">
+              <b>If your SSC & HSC board not shown in SSC & HSC Details Dropdown list?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwenty-six" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwenty-six">
+            <div class="accordion-body">
+              1. Select the Other board from the SSC/HSC details section. 2. Fill all mandatory fields in SSC/HSC details section manually.(i.e. Board Name, Seat No., Name on SSC Certificate, the Total Marks, Marks Obtained).
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwenty-seven">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwenty-seven" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwenty-seven">
+              <b>If Your College Name/Course Name Missing from College Name & Course Name fieldDropdown?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwenty-seven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwenty-seven">
+            <div class="accordion-body">
+              Select the check box which is displayed at the bottom and add College Name & Course Name, University Name manually.
+            </div>
+          </div>
+        </div><div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwenty-eight">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwenty-eight" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwenty-eight">
+              <b>For Aadhaar Bank linking status?</b>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwenty-eight" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwenty-eight">
+            <div class="accordion-body">
+              Dial *99*99# to know the Aadhaar Bank linking status.
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="chatbotbutton" onclick="openForm()">ChatBot</button>
+      <div class="chat-popup" id="myForm">
+        <!-- <form method="post" action="/" class="form-container"> -->
+        <form action="/" method="post" class="form-container">
+          <table>
+            <tr>
+              <td><div class="chatbottext"><strong>ChatBot</strong></div></td>
+              <td><button type="button" class="btn cancel" onclick="closeForm()">X</button></td></td>
+            </tr>
+          </table>
+          <div class="msgbox">
+          <div class="serverside">
+            Hello,
+            How can I help you? 
+          </div>
+          </div>
+          <table class="boxbottom"><tr>
+          <td>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+          <td>
+            <button type="submit" id="sendmsg" class="btn" value="send" name="sendmsg">Send</button></td>
+        </tr></table>
+        </form>
+      </div>
+      <br><hr>
+      <dl class="row">
+        <dt class="col-sm-3">Hackathon Problem Statement Details:</dt>
+        <dd class="col-sm-9">Smart India Hackathon<br>
+            Hackathon Year: 2022<br>
+            Organization:
+            All India Council for Technical Education (AICTE)<br>
+            Link: <a href="https://www.sih.gov.in/sih2022PS">https://www.sih.gov.in/sih2022PS</a><br>
+            S.NO.: 25</dd>
+      
+        <dt class="col-sm-3">Project Name</dt>
+        <dd class="col-sm-9">
+          <p>AI based chat-bot</p>
+        </dd>
+      
+        <dt class="col-sm-3">Devlopement Team</dt>
+        <dd class="col-sm-9">
+            <ul>
+                <li>GAJALWAD SACHIN SANGRAM</li>
+                <li>HINGADE SHUBHAM BHAUSAHEB</li>
+                <li>ANIKET PANJABRAO BICHARE</li>
+                <li>DESHMUKH AJINKYA RAJENDRA</li>
+                <li>GUNJAL KIRAN RAMA</li>
+                </ul>
+        </dd>
+      
+        <dt class="col-sm-3 text-truncate">Project Guide</dt>
+        <dd class="col-sm-9">Dr.Ashutosh M. Kulkarni</dd>
+      </dl>
+</body>
+</html>
